@@ -112,11 +112,11 @@
 		</ul>
 	</div>
 	<script src="js/jquery.js"></script>
-	<script type="text/javascript" src="scrollForever.js"></script>
+	<script type="text/javascript" src="scrollForever.min.js"></script>
 	<script type="text/javascript">
 	$(function(){
 		// var time1 = new Date;
-		$("#a1").scrollForever();
+		$("#a1").scrollForever({delayTime: 30, pauseOnHover: true });
 		$("#b1").scrollForever({dir:"top",container:".b-con",inner:"div"});
 		$("#a2").scrollForever({continuous:false,num:2});
 		$("#b2").scrollForever({dir:"top",container:".b-con",inner:"div",continuous:false});

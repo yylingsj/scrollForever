@@ -13,7 +13,8 @@
 			speed: 1000,//非连续滚动速度
 			delayTime: 0,//滚动间隔
 			continuous: true,//是否连续
-			num: 1//非连续一次滚动的数量
+			num: 1,//非连续一次滚动的数量,
+			pauseOnHover: false//鼠标hover时是否暂停
 		};
 		var opts = $.extend({}, defaults, options);
 		var placeHolder = opts.placeholder;
@@ -113,11 +114,13 @@
 			var aTime = opts.continuous == true ? 20 : 2000;
 			delayTime = delayTime == 0 ? aTime : delayTime;
 			scrollTime = setInterval(autoScroll, delayTime);
-			obj.hover(function() {
-				clearInterval(scrollTime);
-			}, function() {
-				scrollTime = setInterval(autoScroll, delayTime);
-			});
+			if(opts.pauseOnHover){
+				obj.hover(function() {
+					clearInterval(scrollTime);
+				}, function() {
+					scrollTime = setInterval(autoScroll, delayTime);
+				});
+			}			
 		})
 	}
 })(jQuery);
